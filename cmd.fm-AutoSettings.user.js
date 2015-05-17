@@ -27,13 +27,8 @@ function delayCmds(list) {
     }, cmdDelay);
 }
 
-function typeCmd(cmd) {
-    for(i = 0; i < cmd.length; ++i)
-        $('div.cmd').trigger({type: 'keypress', which: cmd.charCodeAt(i)});
-}
-
 $(function() {
     setTimeout(delayCmds(cmdList), cmdDelay);
         // Double the first delay (as cmd.fm also uses this method to change the display)
-    typeCmd(typedCmd);
+    term_obj.set_command(typedCmd);
 });
